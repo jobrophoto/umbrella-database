@@ -619,3 +619,24 @@ img {
   letter-spacing: 0.15em;
   line-height: 1.8;
 }
+
+/* =====================
+   SCROLLBAR
+===================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cc0000;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aa0000;
+}
