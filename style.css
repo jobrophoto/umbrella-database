@@ -422,6 +422,78 @@ img {
   color: #cc0000;
 }
 
+.virus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 80px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #cccccc;
+}
+
+.virus-entry {
+  border: 1px solid #222222;
+  background-color: #111111;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.virus-entry:hover {
+  border-color: #cc0000;
+  box-shadow: 0 0 30px rgba(204, 0, 0, 0.15);
+}
+
+.virus-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-bottom: 1px solid #222222;
+  background-color: #0f0f0f;
+}
+
+.virus-name {
+  font-size: 1.5rem;
+  color: #ffffff;
+  letter-spacing: 0.3em;
+}
+
+.virus-id {
+  font-size: 0.75rem;
+  color: #cc0000;
+  letter-spacing: 0.2em;
+}
+
+.virus-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
+  padding: 0;
+}
+
+.virus-stat {
+  padding: 25px 30px;
+  border-right: 1px solid #222222;
+}
+
+.virus-stat:last-child {
+  grid-column: span 2;
+  border-right: none;
+  border-bottom: none;
+}
+
+.virus-stat h3 {
+  font-size: 0.7rem;
+  color: #cc0000;
+  letter-spacing: 0.25em;
+  margin-bottom: 10px;
+}
+
+.virus-stat p {
+  font-size: 0.85;
+  line-height: 1.8;
+}
+
 /* =====================
    FILE PAGE LOAD ANIMATION
 ===================== */
