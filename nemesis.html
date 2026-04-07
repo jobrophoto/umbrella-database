@@ -10,6 +10,8 @@
 
     <!-- Scan Lines -->
     <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+    
 
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -93,6 +95,27 @@
         <p>RACCOON CITY RESEARCH DIVISION</p>
       </div>
      </footer>
+
+      <script>
+       const overlay = document.querySelector('.glitch-overlay');
+
+       // Glitch in on page load
+       overlay.classList.add('glitch-in');
+
+       // Glitch transition for all links
+       document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+            if (!href || href.startsWith('http')) return;
+            e.preventDefault();
+            overlay.classList.remove('glitch-in');
+            overlay.classList.add('active', 'glitch-out');
+            setTimeout(() => {
+               window.location.href = href;
+      }, 500);
+    });
+  });
+</script>
 
   </body>
 </html>

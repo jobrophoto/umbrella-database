@@ -10,6 +10,29 @@
 
     <!-- Scan Lines -->
     <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+
+    <div class="loader-screen" id="loaderScreen">
+    <div class="loader-content">
+
+      <img src="images/umbrella-logo.png" alt="Umbrella Logo" class="loader-logo" />
+      <h2 class="loader-title">UMBRELLA CORPORATION</h2>
+      <p class="loader-subtitle">BIOWEAPONS RESEARCH DIVISION</p>
+
+      <div class="loader-status" id="loaderStatus">INITIALIZING SECURE CONNECTION...</div>
+
+      <div class="loader-bar-container">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+
+      <div class="loader-percent" id="loaderPercent">0%</div>
+
+      <div class="loader-warning">
+        ⚠ AUTHORIZED PERSONNEL ONLY — ALL ACCESS IS MONITORED ⚠
+      </div>
+
+      </div>
+    </div>
 
     <!-- Navigation Bar -->
      <nav class="navbar">
@@ -38,7 +61,7 @@
         </div>
 
         <!-- Enter Button -->
-        <button class="enter-btn" onclick="setTimeout(() => window.location.href ='database.html', 500)">ACCESS DATABASE</button>
+        <button class="enter-btn" href="database.html">ACCESS DATABASE</button>
 
      </div>
 
@@ -58,5 +81,89 @@
       </div>
      </footer>
 
+<script>
+  const overlay = document.querySelector('.glitch-overlay');
+  const loaderScreen = document.getElementById('loaderScreen');
+  const loaderBar = document.getElementById('loaderBar');
+  const loaderPercent = document.getElementById('loaderPercent');
+  const loaderStatus = document.getElementById('loaderStatus');
+
+  // Glitch in on page load
+  overlay.classList.add('glitch-in');
+
+  // Fake system messages during loading
+  const statusMessages = [
+    'INITIALIZING SECURE CONNECTION...',
+    'VERIFYING CLEARANCE LEVEL...',
+    'DECRYPTING DATABASE ACCESS...',
+    'LOADING BOW RESEARCH FILES...',
+    'BYPASSING SECURITY PROTOCOLS...',
+    'ACCESS GRANTED. LOADING DATABASE...'
+  ];
+
+  // Enter button click
+  document.querySelector('.enter-btn').addEventListener('click', function() {
+
+    // Show loader
+    loaderScreen.classList.add('active');
+
+    let progress = 0;
+    let messageIndex = 0;
+
+    // Update status message every 700ms
+    const messageInterval = setInterval(() => {
+      if (messageIndex < statusMessages.length - 1) {
+        messageIndex++;
+        loaderStatus.textContent = statusMessages[messageIndex];
+      }
+    }, 700);
+
+    // Fill progress bar
+    const progressInterval = setInterval(() => {
+
+      // Random increment for organic feel
+      progress += Math.random() * 3 + 0.5;
+
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(progressInterval);
+        clearInterval(messageInterval);
+
+        loaderBar.style.width = '100%';
+        loaderPercent.textContent = '100%';
+        loaderStatus.textContent = 'ACCESS GRANTED. LOADING DATABASE...';
+
+        // Trigger glitch out then navigate
+        setTimeout(() => {
+          overlay.classList.remove('glitch-in');
+          overlay.classList.add('active', 'glitch-out');
+          setTimeout(() => {
+            window.location.href = 'database.html';
+          }, 500);
+        }, 1200);
+
+        return;
+      }
+
+      loaderBar.style.width = progress + '%';
+      loaderPercent.textContent = Math.floor(progress) + '%';
+
+    }, 100);
+  });
+
+  // Glitch transition for all other links
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('http')) return;
+      e.preventDefault();
+      overlay.classList.remove('glitch-in');
+      overlay.classList.add('active', 'glitch-out');
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500);
+    });
+  });
+</script>
   </body>
 </html>
