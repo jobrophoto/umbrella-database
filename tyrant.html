@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umbrella Corporation | Tyrant Research File</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
   </head>
   <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-      <a href="index.html"><img src="images/umbrella-logo.png" alt="Umbrella Logo" class="nav-logo"></a>
+    <a href="index.html"><img src="images/umbrella-logo.png" alt="Umbrella Logo" class="nav-logo"></a>
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
         <li><a href="database.html">BOW DATABASE</a></li>
@@ -76,5 +75,27 @@
         <a href="database.html" class="back-btn">← RETURN TO DATABASE</a>
      </div>
      
+    <script>
+       const overlay = document.querySelector('.glitch-overlay');
+
+       // Glitch in on page load
+       overlay.classList.add('glitch-in');
+
+       // Glitch transition for all links
+       document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+            if (!href || href.startsWith('http')) return;
+            e.preventDefault();
+            overlay.classList.remove('glitch-in');
+            overlay.classList.add('active', 'glitch-out');
+            setTimeout(() => {
+               window.location.href = href;
+      }, 500);
+    });
+  });
+</script>
+
+
   </body>
 </html>
