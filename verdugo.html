@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Corporation | Licker Research File</title>
+    <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="/favicon.png">
+  </head>
+  <body>
+
+    <!-- Scan Lines -->
+    <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html"><img src="images/umbrella-logo.png" alt="Umbrella Logo" class="nav-logo"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="database.html" class="active">BOW DATABASE</a></li>
+        <li><a href="virus.html">VIRUS INDEX</a></li>
+      </ul>
+    </nav>
+
+    <!-- File Header -->
+    <div class="file-header">
+      <p class="file-label">UMBRELLA CORPORATION - CLASSIFIED RESEARCH FILE</p>
+      <h1 class="creature-name">VERDUGO</h1>
+      <p class="file-id">FILE ID: BOW-005 | CLEARANCE LEVEL: 6</p>
+    </div>
+
+    <!-- Main Content -->
+     <div class="file-content">
+
+      <!-- Left Column - Image -->
+      <div class="file-image">
+        <img src="images/verdugo-full.png" alt="Verdugo">
+        <p class="image-caption">SUBJECT: T-373 | STATUS: ACTIVE</p>
+      </div>
+
+      <!-- Right Column - Data -->
+      <div class="file-data">
+
+        <div class="data-block">
+          <h3>CLASSIFICATION</h3>
+          <p>Bio-Organic Weapon (BOW) — Type C</p>
+        </div>
+
+        <div class="data-block">
+          <h3>VIRUS ORIGIN</h3>
+          <p>Las Plagas</p>
+        </div>
+
+        <div class="data-block">
+          <h3>THREAT LEVEL</h3>
+          <p class="high">HIGH</p>
+        </div>
+
+        <div class="data-block">
+          <h3>OBSERVED BEHAVIOR</h3>
+          <p>Result of advanced T-Virus mutation in human hosts. Brain tissue is fully exposed due to skin deterioration. Completely blind — hunts exclusively through sound and vibration. Moves along walls and ceilings with terrifying agility. Possesses a elongated razor-sharp tongue used as a primary attack.</p>
+        </div>
+
+        <div class="data-block">
+          <h3>WEAKNESSES</h3>
+          <p>Entirely blind — silent movement renders subject unable to detect prey. Vulnerable to explosive damage and concentrated gunfire to exposed brain.</p>
+        </div>
+
+        <div class="data-block">
+            <h3>RESEARCH NOTES</h3>
+            <p>Licker subjects represent a significant leap in T-Virus mutation complexity. Their acoustic hunting ability makes them ideal for enclosed facility defense. Recommend deploying in corridor environments. Researchers must maintain strict silence protocols when in proximity.</p>
+        </div>
+
+      </div>
+     </div>
+
+     <!-- Back Button -->
+     <div class="back-btn-container">
+        <a href="database.html" class="back-btn">← RETURN TO DATABASE</a>
+     </div>
+     
+     <!-- Footer -->
+     <footer class="footer">
+      <div class="footer-logo">
+        <img src="images/umbrella-logo.png" alt="Umbrella Logo">
+        <span>UMBRELLA CORPORATION</span>
+      </div>
+      <div class="footer-middle">
+        <p class="footer-classified">⚠ ALL DATA CONTAINED WITHIN IS CLASSIFIED ⚠</p>
+        <p class="footer-sub">UNAUTHORIZED ACCESS WILL BE PROSECUTED TO THE FULL EXTENT OF UMBRELLA SECURITY PROTOCOL</p>
+      </div>
+      <div class="footer-copy">
+        <p>© 1998 UMBRELLA CORPORATION</p>
+        <p>RACCOON CITY RESEARCH DIVISION</p>
+      </div>
+     </footer>
+
+     <script>
+       const overlay = document.querySelector('.glitch-overlay');
+
+       // Glitch in on page load
+       overlay.classList.add('glitch-in');
+
+       // Glitch transition for all links
+       document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+            if (!href || href.startsWith('http')) return;
+            e.preventDefault();
+            overlay.classList.remove('glitch-in');
+            overlay.classList.add('active', 'glitch-out');
+            setTimeout(() => {
+               window.location.href = href;
+      }, 500);
+    });
+  });
+</script>
+
+  </body>
+</html>
