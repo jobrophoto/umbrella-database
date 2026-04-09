@@ -153,25 +153,51 @@
       </div>
      </footer>
      
-    <script>
-       const overlay = document.querySelector('.glitch-overlay');
+<script>
+  const overlay = document.querySelector('.glitch-overlay');
 
-       // Glitch in on page load
-       overlay.classList.add('glitch-in');
+  // Glitch in on page load
+  overlay.classList.add('glitch-in');
 
-       // Glitch transition for all links
-       document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-            if (!href || href.startsWith('http')) return;
-            e.preventDefault();
-            overlay.classList.remove('glitch-in');
-            overlay.classList.add('active', 'glitch-out');
-            setTimeout(() => {
-               window.location.href = href;
+  // Glitch transition for all links
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('http')) return;
+
+      // Skip jump links on same page
+      if (href.startsWith('#')) return;
+
+      e.preventDefault();
+      overlay.classList.remove('glitch-in');
+      overlay.classList.add('active', 'glitch-out');
+      setTimeout(() => {
+        window.location.href = href;
       }, 500);
     });
   });
+
+  // Highlight virus card if jumped to via anchor
+  function highlightVirusFromHash() {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    // Wait for glitch in to finish then highlight
+    setTimeout(() => {
+      target.classList.add('highlighted');
+
+      // Remove class after animation finishes
+      setTimeout(() => {
+        target.classList.remove('highlighted');
+      }, 2000);
+    }, 800);
+  }
+
+  // Run on page load
+  highlightVirusFromHash();
 </script>
 
   </body>
