@@ -809,3 +809,59 @@ img {
   margin-top: 20px;
   animation: flicker 3s infinite;
 }
+
+/* =====================
+   VIRUS COLORS
+===================== */
+
+.virus-t {
+  color: #39ff14;
+  font-weight: bold;
+}
+
+.virus-g {
+  color: #9b30ff;
+  font-weight: bold;
+}
+
+.virus-plagas {
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.virus-mold {
+  color: #00b894;
+  font-weight: bold;
+}
+
+/* =====================
+   ANCHOR OFFSET FIX
+===================== */
+
+.virus-entry {
+  scroll-margin-top: 90px;
+}
+
+/* =====================
+   VIRUS ENTRY GLOW ON HOVER
+===================== */
+
+#t-virus:hover {
+  border-color: #39ff14;
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+}
+
+#g-virus:hover {
+  border-color: #9b30ff;
+  box-shadow: 0 0 30px rgba(155, 48, 255, 0.2);
+}
+
+#las-plagas:hover {
+  border-color: #ff8c00;
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.2);
+}
+
+#the-mold:hover {
+  border-color: #00b894;
+  box-shadow: 0 0 30px rgba(0, 184, 148, 0.2);
+}
