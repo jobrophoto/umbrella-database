@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARK Laboratory | Restricted Access</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+    <!-- Screen Styling -->
+    <div class="scanlines"></div>
+    <div class="glitch-overlay"></div> 
+
+
+    <div class="ark-gate" id="artGate">
+      <div class="ark-gate-content">
+
+        <!-- Ark Logo -->
+        <div class="ark-logo">
+          <p class="ark-logo-text">Ark</p>
+          <p class="ark-logo-sub">ADVANCED RESEARCH KATALYST</p>
+        </div>
+
+        <!-- Warning -->
+        <div class="ark-warning">
+          ⚠ RESTRICTED NETWORK NODE DETECTED ⚠
+        </div>
+
+        <!-- Instruction -->
+        <p class="ark-instruction">ENTER AUTHORIZATION CODE TO PROCEED</p>
+
+        <!-- Input -->
+        <div class="ark-input-container">
+          <input 
+            type="password"
+            id="arkInput"
+            class="ark-input"
+            maxlength="10"
+            placeholder="_ _ _ _ _"
+            autocomplete="off">
+        </div>
+
+        <!-- Submit Button -->
+        <button class="ark-submit-btn" id="arkSubmit">SUBMIT CODE</button>
+
+        <!-- Feedback Message -->
+        <div class="ark-feedback" id="arkFeedback"></div>
+
+        <!-- Disclaimer -->
+        <p class="ark-disclaimer">
+          THIS NETWORK NODE IS NOT AFFILIATED WITH UMBRELLA CORPORATION.<br>
+          ALL TRANSACTIONS ARE ENCRYPTED AND UNTRACEABLE. <br>
+          UNAUTHORIZED ACCESS ATTEMPTS ARE LOGGED AND NEUTRALIZED.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
