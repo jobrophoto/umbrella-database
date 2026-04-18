@@ -55,5 +55,79 @@
         </p>
       </div>
     </div>
+    <script>
+      const overlay = document.querySelector('.glitch-overlay');
+      overlay.classList.add('glitch-in');
+
+      const SECRET_CODE = 'HOPE';
+
+      const arkInput = document.getElementById('arkInput');
+      const arkSubmit = document.getElementById('arkSubmit');
+      const arkFeedback = document.getElementById('arkFeedback');
+      const arkGate = document.getElementById('arkGate');
+
+      // Allow Enter key to submit
+      arkInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') checkCode();
+      });
+
+      arkSubmit.addEventListener('click', checkCode);
+
+      function checkCode() {
+        const input = arkInput.value.toUpperCase().trim();
+
+        if (input === SECRET_CODE){
+
+          //Correct code - access granted sequence
+          arkFeedback.className = 'ark-feedback success';
+          arkFeedback.textContent = '✓ CODE ACCEPTED — DECRYPTING ACCESS...';
+
+          arkSubmit.disabled = true;
+          arkInput,disabled = true;
+
+          setTimeout(() => {
+            arkFeedback.textContent = '✓ IDENTITY VERIFIED — LOADING CATALOG...'
+          }, 800);
+
+          setTimeout(() => {
+            arkFeedback.textContent = '✓ WELCOME TO ARK LABORATORY...'
+          }, 1600);
+          
+          setTimeout(() =>{
+            // Glitch out then show shop
+            overlay.classList.remove('glitch-in');
+            overlay.classList.add('active', 'glitch-out');
+            setTimeout(() => {
+              window.location.href = 'ark-shop.html';
+            }, 500);
+          }, 2400);
+
+        } else {
+
+          // Wrong code - access denied
+          arkFeedback.className = 'ark-feedback error';
+          arkFeedback.textContent = '✗ INVALID CODE — ACCESS DENIED';
+
+          arkInput.classList.add('shake');
+          setTimeout(() => {
+            arkInput.classList.remove('shake');
+            arkInput.value = '';
+          }, 600);
+        }
+      }
+          // Glitch transition for any links
+          document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+              const href = this.getAttribute('href');
+              if (!href || href.startsWith('http')) return;
+              e.preventDefault();
+              overlay.classList.remove('glitch-in');
+              overlay.classList.add('active', 'glitch-out');
+              setTimeout(() => {
+                window.location.href = href;
+              }, 500);
+            });
+          });
+    </script>
   </body>
 </html>
