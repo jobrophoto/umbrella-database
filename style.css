@@ -1046,3 +1046,52 @@ img {
   animation: shake 0.5 ease;
   border-color: #cc0000;
 }
+
+/* =====================
+   ARK SHOP HEADER
+===================== */
+
+.ark-nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ark-nav-title {
+  font-size: 0.9rem;
+  color: #ffffff;
+  letter-spacing: 0.3em;
+}
+
+.ark-nav-sub {
+  font-size: 0.65rem;
+  color: #cc0000;
+  letter-spacing: 0.2em;
+}
+
+.ark-shop-header {
+  text-align: center;
+  padding: 50px 20px 30px;
+  border-bottom: 1px solid #222222;
+  margin-bottom: 50px;
+}
+
+.ark-shop-label {
+  color: #cc0000;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 15px;
+}
+
+.ark-shop-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  letter-spacing: 0.3em;
+  margin-bottom: 15px;
+}
+
+.ark-shop-sub {
+  color: #888888;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
